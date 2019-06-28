@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>Welcome to the {{ title }}!</title>
+    </head>
+    <body>
+        {% if user.name %}
+        <h1>Hello {{ user.name }}!</h1>
+        {% else %}
+        <h1>Hello Person!</h1>
+        {% endif %}
+        
+        <p>Congrats on reaching {{ user.grade }}th grade!</p>
+        
+        <a href="/secret">Click here to find the secret!</a>
+        <br><br>
+        <form method="post" action="/sendBreakfast">
+          <label for="nickname">What's your nickname?</label>
+          <input type='text' name='nickname'>
+          <label for="breakfast">What did you have for breakfast?</label>
+          <input type='text' name='breakfast'>
+          <input type='submit'>
+        </form>
+        
+        <!--<form>-->
+        <!--    <input type="text" name="nickname" value="Enter your nickname"/>-->
+        <!--    <input type="submit" value="Submit"/>-->
+        <!--</form>-->
+    </body>
+</html>

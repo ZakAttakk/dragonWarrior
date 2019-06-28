@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>Dragon Quest Lite!</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        
+        
+    </head>
+    <body>
+         
+        <div class="container">
+
+          <h4>Welcome <b>{{ name }} the {{ wizard }}</b></h4>
+          <br>
+          <p class="flow-text">
+          Rules<br><br>
+          1. You always get to attack first.<br>
+          2. If your offense is stronger than the enemy's defense, you are more likely to damage the enemy.<br>
+          3. If your enemy is still alive, it will attack second.  If your enemy's offense is stronger than your defense, it is more likely to damage you.<br>
+          4. Keep track of hit points.  If you think you're going to die, you can run away and heal up.<br>
+          
+          </p>
+          
+        <form action="/enemies?id={{ name }}" method="post">
+	        <button class="btn" type="submit">Continue</button>
+        </form>
+
+          
+          <!--<form action="/getStuff" method="post">-->
+          <!--    <button type="submit">test</button>-->
+          <!--</form>-->
+          
+        </div>
+
+         
+         
+        <!--<form>-->
+        <!--    <input type="text" name="nickname" value="Enter your nickname"/>-->
+        <!--    <input type="submit" value="Submit"/>-->
+        <!--</form>-->
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script>
+          var options = {};
+          document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+          });
+          
+          console.log("TEST!!")
+          
+          var submitButton = document.querySelector("#submitButton");
+          
+        </script>
+    </body>
+</html>

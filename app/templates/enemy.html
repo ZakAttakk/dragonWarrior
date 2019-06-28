@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <title>Dragon Quest Lite!</title>
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+        <link rel="stylesheet" type="text/css" href="static/style.css">
+        
+    </head>
+    <body>
+         
+        <div class="container center-align">
+
+        <h3>{{ enemy[0] }}</h3>
+
+        <br>
+        {% if enemyAlive %}
+         <img src="static/enemyPics/{{ enemyFileName }}.gif" width="180">
+
+        {% else %}
+        <p>THIS ENEMY IS DEAD!<br>
+        YOU GOT A +7 OFFENSE AND +7 DEFENSE BOOST!</p>
+        {% endif %}
+        
+        <p class="flow-text">
+          You've hit the enemy for {{ enemyHitPointDifference }} hit points!<br>
+          The enemy has hit you for: {{ playerHitPointDifference }} hit points!
+              
+        </p>
+        
+        {% if playerAlive %}
+        <p class="flow-text">
+          Enemy Offense: <b>{{ enemy[1] }}</b>&emsp;Enemy Defense: <b>{{ enemy[2] }}</b>&emsp;Enemy Hit Points: <b>{{ newEnemyHitPoints }}</b>
+              
+        </p>
+        
+        <p class="flow-text">
+          Your Offense: <b>{{ playerStats.offensiveStrength}}</b>&emsp;Your Defense: <b>{{ playerStats.defensiveStrength}}</b>&emsp;Your Hit Points: <b>{{ newPlayerHitPoints}}</b>
+              
+            </p>
+        {% if enemyAlive %}
+        <form action="/enemy?id={{ name }}&number={{ enemyNumber }}" method="post">
+	        <button class="btn" type="submit">Fight!</button>
+        </form>
+        
+        <form action="/enemies?id={{ name }}" method="post">
+	        <button class="btn" type="submit">Run!</button>
+        </form>
+        {% else %}
+        <form action="/enemies?id={{ name }}" method="post">
+	        <button class="btn" type="submit">Go Back</button>
+        </form>
+        {% endif %}
+        
+        {% else %}
+        <p>YOU'RE DEAD!</p>
+        {% endif %}
+
+        </div>
+        
+
+
+         
+         
+        <!--<form>-->
+        <!--    <input type="text" name="nickname" value="Enter your nickname"/>-->
+        <!--    <input type="submit" value="Submit"/>-->
+        <!--</form>-->
+        
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+        
+        <script>
+          var options = {};
+          document.addEventListener('DOMContentLoaded', function() {
+          var elems = document.querySelectorAll('select');
+          var instances = M.FormSelect.init(elems, options);
+          });
+          
+          console.log("TEST!!")
+          
+          var submitButton = document.querySelector("#submitButton");
+          
+        </script>
+    </body>
+</html>
